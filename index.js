@@ -8,8 +8,9 @@ class Employee {
 const formElement = document.querySelector('form');
 formElement.addEventListener('submit', event => {
    event.preventDefault();
-   const firstNameInputElement = event.target.querySelector('#firstName');
-   const lastNameInputElement = event.target.querySelector('#lastName');
+   const formElement = event.target;
+   const firstNameInputElement = formElement && event.target.querySelector('#firstName');
+   const lastNameInputElement = formElement && event.target.querySelector('#lastName');
    if (firstNameInputElement && firstNameInputElement.value
        && lastNameInputElement && lastNameInputElement.value) {
        console.log(new Employee(firstNameInputElement.value, lastNameInputElement.value));
